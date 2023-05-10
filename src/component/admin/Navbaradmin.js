@@ -1,7 +1,7 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 
-const Navbar = () => {
+const Navbaradmin = () => {
   return (
     <>
       {/* Navbar */}
@@ -27,6 +27,17 @@ const Navbar = () => {
             {/* Left links */}
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
 
+              <li className="nav-item">
+                <NavLink className="nav-link" to="/main/Login">
+                  Login
+                </NavLink>
+              </li>
+
+              <li className="nav-item">
+                <NavLink className="nav-link" to="/main/Signup">
+                  Signup
+                </NavLink>
+              </li>
 
               <li className="nav-item">
                 <NavLink className="nav-link" to="/main/Home">
@@ -36,44 +47,18 @@ const Navbar = () => {
 
               <li className="nav-item">
                 <NavLink className="nav-link" to="/admin/AddEquipment">
-                  <button type="button" className="btn btn-outline-light btn-square-md" data-mdb-ripple-color="dark">
-                    +
-                  </button>
-                </NavLink>
-              </li>
-              <li className="nav-item">
-                <NavLink className="nav-link" to="/main/BrowseEquipment">
-                  <button type="button" className="btn btn-outline-secondry btn-square-md" data-mdb-ripple-color="dark">
-                    BrowseEquipments
-                  </button>
+                 AddEquipment
                 </NavLink>
               </li>
 
-  
-              </ul>
-                </div>
-          
-
-
-            
+             
+            </ul>
             {/* Left links */}
           </div>
           {/* Collapsible wrapper */}
           {/* Right elements */}
-          <ul className="d-flex align-items-center navbar-nav me-auto mb-2 mb-lg-0 ">
+          <div className="d-flex align-items-center">
             {/* Icon */}
-            <li className="nav-item">
-              <NavLink className="nav-link" to="/main/Login">
-                <button type="button" className="btn btn-outline-secondary" data-mdb-ripple-color="dark">Login</button>
-              </NavLink>
-            </li>
-
-            <li className="nav-item">
-              <NavLink className="nav-link" to="/main/Signup">
-                <button type="button" className="btn btn-outline-secondary" data-mdb-ripple-color="dark">Signup</button>
-              </NavLink>
-            </li>
-
             <a className="text-reset me-3" href="#">
               <i className="fas fa-shopping-cart" />
             </a>
@@ -84,7 +69,7 @@ const Navbar = () => {
                 id="navbarDropdownMenuAvatar"
                 type="button"
                 data-mdb-toggle="dropdown"
-
+               
               >
                 <img
                   src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp"
@@ -94,7 +79,7 @@ const Navbar = () => {
                   loading="lazy"
                 />
               </a>
-
+              
               <ul
                 className="dropdown-menu dropdown-menu-end"
                 aria-labelledby="navbarDropdownMenuAvatar"
@@ -104,27 +89,27 @@ const Navbar = () => {
                     className="dropdown-item" href="/Myprofile">
                     My profile
                   </a>
-
+                  
                 </li>
                 <li>
                   <a
                     className="dropdown-item" href="#">
                     Settings
                   </a>
-
+                  
                 </li>
                 <li>
                   <a
                     className="dropdown-item" href="#">
                     Logout
                   </a>
-
+                  
                 </li>
               </ul>
             </div>
-          </ul>
+          </div>
 
-        
+        </div>
 
 
         {/* Container wrapper */}
@@ -135,4 +120,4 @@ const Navbar = () => {
   )
 }
 
-export default Navbar
+export default Navbaradmin
