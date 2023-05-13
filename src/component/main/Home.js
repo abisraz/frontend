@@ -30,11 +30,11 @@ const HOME = () => {
       />
     </div>
     {/* Inner */}
-    <div className="carousel-inner">
+    <div className="carousel-inner ">
       {/* Single item */}
       <div className="carousel-item active">
         <img
-          src="https://mdbcdn.b-cdn.net/img/Photos/Slides/img%20(19).webp"
+          src="https://kenbrooksolar.com/wp-content/uploads/Solar-panels-1.jpg"
           className="d-block w-100"
           alt="Motorbike Smoke"
         />

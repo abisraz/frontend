@@ -15,25 +15,25 @@ const AddEquipment = () => {
       .required('*Required'),
 
 
-    discription: yup.string()
+    // discription: yup.string()
 
-      .min(25, 'Password must be 25 characters long')
-      .matches(/[0-9]/, 'Password requires a number')
-      .matches(/[a-z]/, 'Password requires a lowercase letter')
-      .matches(/[A-Z]/, 'Password requires an uppercase letter')
-      .matches(/[^\w]/, 'Password requires a symbol'),
-    price: yup
-      .string()
-      .oneOf([yup.ref('price'), null], 'Must match "price" field value'),
+    //   .min(25, 'Password must be 25 characters long')
+    //   .matches(/[0-9]/, 'Password requires a number')
+    //   .matches(/[a-z]/, 'Password requires a lowercase letter')
+    //   .matches(/[A-Z]/, 'Password requires an uppercase letter')
+    //   .matches(/[^\w]/, 'Password requires a symbol'),
+    // price: yup
+    //   .string()
+    //   .oneOf([yup.ref('price'), null], 'Must match "price" field value'),
 
-    category: yup.string()
-      .min(8, 'email must be 8 characters long')
-      .matches(/[0-9]/, 'email requires a number'),
+    // category: yup.string()
+    //   .min(8, 'email must be 8 characters long')
+    //   .matches(/[0-9]/, 'email requires a number'),
     
 
 
-      image: yup.string()
-      ,
+    //   image: yup.string()
+    //   ,
       
 
   });
@@ -57,7 +57,7 @@ const AddEquipment = () => {
       //3 data
       //4 data format to be send
 
-      const res = await fetch('http://localhost:5000/user/add', {
+      const res = await fetch('http://localhost:5000/equipment/add', {
         method: 'POST',
         body: JSON.stringify(values),
         headers: {
@@ -76,7 +76,7 @@ const AddEquipment = () => {
           title: 'Nice',
           text: 'user regesterd successfully'
         });
-        navigate('/main/login');
+        // navigate('/main/login');
       } else {
         Swal.fire({
           icon: "error",
