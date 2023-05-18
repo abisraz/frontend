@@ -9,6 +9,8 @@ import Home from './component/main/Home';
 import AddEquipment from './component/admin/AddEquipment';
 import Admin from './component/admin';
 import BrowseEquipments from './component/main/BrowseEquipments';
+import Solarshop from './component/main/Solarshop';
+import EquipmentDetails from './component/main/EquipmentDetails';
 
 
 
@@ -31,6 +33,8 @@ function App() {
             <Route path="Login" element={<Login />} />
             <Route path="Signup" element={<Signup />} />
             <Route path="BrowseEquipment" element={<BrowseEquipments />} />
+            <Route path="Solarshop" element={<Solarshop />} />
+            <Route path="EquipmentDetails" element={< EquipmentDetails />} />
          
           </Route>
             
