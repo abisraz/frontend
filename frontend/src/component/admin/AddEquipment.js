@@ -113,7 +113,6 @@ const AddEquipment = () => {
               </div>
                 </div>
               </div>
-              <hr className="mx-n3" />
               <div className="row align-items-center py-3">
                 <div className="col-md-3 ps-5">
                   <h6 className="mb-0">Discription</h6>
@@ -131,7 +130,6 @@ const AddEquipment = () => {
                   <span className='text-danger'>{equipmentForm.errors.discription}</span>
                 </div>
               </div>
-              <hr className="mx-n3" />
               <div className="row align-items-center py-3">
                 <div className="col-md-3 ps-5">
                   <h6 className="mb-0">Price</h6>
