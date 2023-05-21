@@ -32,8 +32,8 @@ const Login = () => {
       },
       onSubmit: async (values) => {
         console.log(values);
-  
-  
+     
+
         //making request to backend
         //1 address url
         //2 request method
@@ -59,7 +59,14 @@ const Login = () => {
             title: 'Nice',
             text: 'user regesterd successfully'
           });
-          navigate('/main/home');
+          const data = await res.json();
+          if(data.role === 'admin'){
+            sessionStorage.setItem('admin', JSON.stringify(data));
+            navigate('/admin/AddEquipment');
+          }else{
+            sessionStorage.setItem('user', JSON.stringify(data));
+            navigate('/main/home');
+          }
         } else {
           Swal.fire({
             icon: "error",

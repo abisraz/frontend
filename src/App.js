@@ -11,6 +11,7 @@ import Admin from './component/admin';
 import BrowseEquipments from './component/main/BrowseEquipments';
 import Solarshop from './component/main/Solarshop';
 import EquipmentDetails from './component/main/EquipmentDetails';
+import AdminAuth from './auth/AdminAuth';
 
 
 
@@ -38,7 +39,7 @@ function App() {
          
           </Route>
             
-          <Route path="admin" element={<Admin/>}>
+          <Route path="admin" element={ <AdminAuth> <Admin/> </AdminAuth>}>
            <Route path="AddEquipment" element={<AddEquipment />} />
 
            </Route>

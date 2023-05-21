@@ -40,7 +40,7 @@ const Signup = () => {
       name: '',
       email: '',
       password: '',
-      registered: '',
+      createdAt: new Date(),
     },
     onSubmit: async (values) => {
       console.log(values);
