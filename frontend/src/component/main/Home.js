@@ -54,7 +54,7 @@ const HOME = () => {
             {/* Single item */}
             <div className="carousel-item">
               <img
-                src="https://mdbcdn.b-cdn.net/img/Photos/Slides/img%20(22).webp"
+                src="https://emmvee.com/wp-content/uploads/2021/10/Farmer-Image-High-res-1280x580-pixel-Copy-1.jpg"
                 className="d-block w-100"
                 alt="Canyon at Nigh"
                 style={{ width: 500, height: 300 }}
@@ -67,14 +67,14 @@ const HOME = () => {
             {/* Single item */}
             <div className="carousel-item">
               <img
-                src="https://mdbcdn.b-cdn.net/img/Photos/Slides/img%20(23).webp"
+                src="https://www.pngmart.com/files/7/Solar-Street-Light-PNG-Free-Download.png"
                 className="d-block w-100"
                 alt="Cliff Above a Stormy Sea"
                 style={{ width: 500, height: 300 }}
               />
               <div className="carousel-caption d-none d-md-block">
                 <h5>Third slide label</h5>
-                <p>
+                <p className='text:black'>
                   Praesent commodo cursus magna, vel scelerisque nisl consectetur.
                 </p>
               </div>
@@ -180,22 +180,18 @@ const HOME = () => {
             </p>
           </div>
           <div className="col-md-5">
-            <svg
-              className="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto"
-              width={500}
-              height={500}
-              xmlns="http://www.w3.org/2000/svg"
-              role="img"
-              aria-label="Placeholder: 500x500"
-              preserveAspectRatio="xMidYMid slice"
-              focusable="false"
-            >
+          <img
+                src="https://mdbcdn.b-cdn.net/img/Photos/Slides/img%20(22).web"
+                className="d-block w-100"
+                alt="about solar panael"
+                style={{ width: 500, height: 500 }}
+              />
               <title>Placeholder</title>
               <rect width="100%" height="100%" fill="var(--bs-secondary-bg)" />
               <text x="50%" y="50%" fill="var(--bs-secondary-color)" dy=".3em">
                 500x500
               </text>
-            </svg>
+         
           </div>
         </div>
         <hr className="featurette-divider" />

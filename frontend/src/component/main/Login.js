@@ -10,21 +10,17 @@ const Login = () => {
   const LoginSchema = yup.object().shape({
     name: yup.string()
 
-      .min(8, 'Too Short!')
-      .max(15, 'Too Long!')
-      .required('*Required'),
+      .min(5, 'Too Short!'),
+     
 
 
     password: yup.string()
 
-      .min(8, 'Password must be 8 characters long')
-      .matches(/[0-9]/, 'Password requires a number')
-      .matches(/[a-z]/, 'Password requires a lowercase letter')
-      .matches(/[A-Z]/, 'Password requires an uppercase letter')
-      .matches(/[^\w]/, 'Password requires a symbol'),
+      .min(5, 'Password must be 8 characters long')
+     
     });
 
-    const Login= useFormik({
+    const LoginForm= useFormik({
       initialValues: {
         email: '',
         password: '',
@@ -40,7 +36,7 @@ const Login = () => {
         //3 data
         //4 data format to be send
   
-        const res = await fetch('http://localhost:5000/user/add', {
+        const res = await fetch('http://localhost:5000/user/authenticate', {
           method: 'POST',
           body: JSON.stringify(values),
           headers: {
@@ -49,7 +45,6 @@ const Login = () => {
         });
   
         console.log(res.status);
-        console.log(await res.text());
   
         console.log('Form Submitted');
   
@@ -60,6 +55,7 @@ const Login = () => {
             text: 'user regesterd successfully'
           });
           const data = await res.json();
+          console.log(data);
           if(data.role === 'admin'){
             sessionStorage.setItem('admin', JSON.stringify(data));
             navigate('/admin/AddEquipment');
@@ -78,7 +74,7 @@ const Login = () => {
       },
   
   
-      validationSchema: LoginSchema
+       validationSchema: LoginSchema
     });
   return (
     <section className="vh-100" style={{ backgroundColor: "white" }}>
@@ -92,49 +88,52 @@ const Login = () => {
 
             <div className="card-body p-5 text-center">
             
-            <form onSubmit={Login.handleSubmit}>
+            <form onSubmit={LoginForm.handleSubmit}>
 
               <h2 className="mb-5">Login</h2>
-              <div className="form-outline mb-4">
+              <div className=" mb-4">
                 <input
                   type="email"
                   id="email"
                 
-                  value={Login.values.email}
-                  onChange={Login.handleChange}
-                  className={"form-control" + (Login.errors.email ? " border-danger" : '')}
+                  value={LoginForm.values.email}
+                  onChange={LoginForm.handleChange}
+                  className={"form-control" + (LoginForm.errors.email ? " border-danger" : '')}
                   placeholder='email'
                 />
                 
               </div>
-              <div className="form-outline mb-4">
+              <div className=" mb-4">
                 <input
                   type="password"
                   id="password"
-                  value={Login.values.password}
-                  onChange={Login.handleChange}
-                  className={"form-control" + (Login.errors.password ? " border-danger" : '')}
+                  value={LoginForm.values.password}
+                  onChange={LoginForm.handleChange}
+                  className={"form-control" + (LoginForm.errors.password ? " border-danger" : '')}
                   placeholder='password'
                 />
                
               </div>
           
             
-              <button className="btn btn-primary btn-lg btn-block" type="submit" id="submit">
+              <button 
+              type="submit"
+              id="submit"
+              className="btn btn-primary btn-lg btn-block">
                 Login
               </button>
               <hr className="my-4" />
               <button
                 className="btn btn-lg btn-block btn-primary"
                 style={{ backgroundColor: "#dd4b39" }}
-                type="submit"
+                type="button"
               >
                 <i className="fab fa-google me-2" /> Sign in with google
               </button>
               <button
                 className="btn btn-lg btn-block btn-primary mb-2"
                 style={{ backgroundColor: "#3b5998" }}
-                type="submit"
+                type="button"
               >
                 <i className="fab fa-facebook-f me-2" />
                 Sign in with facebook

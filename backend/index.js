@@ -23,12 +23,16 @@ const app= express();
  app.get('/',(req,res)=>{
     res.send('Working Perfectly')
  });
+
  app.get('/add',(req,res)=>{
     res.send('Responce from add')
  });
+
+
  app.get('/getall',(req,res)=>{
     res.send('Responce from getall')
  });
+ 
  app.get('/update',(req,res)=>{
     res.send('Responce from update')
  });

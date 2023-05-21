@@ -36,6 +36,7 @@ const BrowseEquipments = () => {
               className="bg-image hover-zoom ripple ripple-surface ripple-surface-light"
               data-mdb-ripple-color="light"
             >
+              {equip.image}
               <img
                 src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/12.jpg"
                 className="w-100" />
