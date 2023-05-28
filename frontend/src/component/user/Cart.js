@@ -24,9 +24,6 @@ const Cart = () => {
     getCartItemsCount,
   } = useProductContext();
 
-
-
-
   const displayCartItems = () => {
     if (getCartItemsCount() === 0) return (
       <div className="text-center">
