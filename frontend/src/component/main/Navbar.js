@@ -97,9 +97,9 @@ const Navbar = () => {
             </NavLink>
           </li>
 
-          <a className="text-reset me-3" href="#">
+          <NavLink className="text-reset me-3" to="/user/cart">
             <i className="fas fa-shopping-cart" />
-          </a>
+          </NavLink>
           <div className="dropdown">
             <a
               className="dropdown-toggle d-flex align-items-center hidden-arrow"

@@ -12,6 +12,7 @@ import BrowseEquipments from './component/main/BrowseEquipments';
 import Solarshop from './component/main/Solarshop';
 import EquipmentDetails from './component/main/EquipmentDetails';
 import AdminAuth from './auth/AdminAuth';
+import Cart from './component/user/Cart';
 
 
 
@@ -36,6 +37,7 @@ function App() {
             <Route path="BrowseEquipment" element={<BrowseEquipments />} />
             <Route path="Solarshop" element={<Solarshop />} />
             <Route path="EquipmentDetails" element={< EquipmentDetails />} />
+            <Route path="Cart" element={< Cart/>} />
          
           </Route>
             
