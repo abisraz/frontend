@@ -1,88 +1,96 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState, useEffect } from "react";
+import app_config from "../../config";
+import {
+  MDBContainer,
+  MDBRow,
+  MDBCol,
+  MDBCard,
+  MDBCardBody,
+  MDBCardImage,
+  MDBIcon,
+} from "mdb-react-ui-kit";
+import useProductContext from "../../context/ProductContext";
+import { Link } from "react-router-dom";
+const BrowseEquipment = () => {
+  const [equipmentList, setEquipmentList] = useState([]);
+  const [masterList, setMasterList] = useState([]);
+  const { apiUrl } = app_config;
 
+  const { addItemToCart, isInCart } = useProductContext();
 
-const BrowseEquipments = () => {
-
-
-  const [equipment, setEquipment] = useState([])
-  const [loading, setLoading] = useState(false)
-
-  const fetchData = async () => {
-    setLoading(true)
-    const res = await fetch('http://localhost:5000/equipment/getall')
-    console.log(res.status)
-    if (res.status === 200) {
-      const data = await res.json()
-      console.log(data)
-      setEquipment(data)
-      setLoading(false)
-    }
-  }
-
+  const fetchEquipmentData = async () => {
+    const res = await fetch(apiUrl + "/equipment/getall");
+    console.log(res.status);
+    const data = await res.json();
+    console.log(data);
+    setMasterList(data);
+    setEquipmentList(data);
+  };
 
   useEffect(() => {
-    fetchData()
-  }, [])
-
-
-
-  function DisplayData() {
-    if (!loading) {
-      return equipment.map((equip) => (
-
-        <div className="col-lg-3 col-md-6 mb-4">
-          <div className="card">
-            <div
-              className="bg-image hover-zoom ripple ripple-surface ripple-surface-light"
-              data-mdb-ripple-color="light"
-            >
-              {equip.image}
-              <img
-                src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/12.jpg"
-                className="w-100" />
-              <a href="#!">
-                <div className="mask">
-                  <div className="d-flex justify-content-start align-items-end h-100">
-                    <h5>
-                      <span className="badge bg-dark ms-2">NEW</span>
-                    </h5>
-                  </div>
-                </div>
-                <div className="hover-overlay">
-                  <div
-                    className="mask"
-                    style={{ backgroundColor: "rgba(251, 251, 251, 0.15)" }} />
-                </div>
-              </a>
-            </div>
-            <div className="card-body">
-              <a href="" className="text-reset">
-                <h5 className="card-title mb-2">{equip.title}</h5>
-              </a>
-              <p>{equip.price}</p>
-
-              {/* <a href="" className="text-reset ">
-                          <p>Shirt</p>
-                        </a> */}
-              <h6 className="mb-3 price">  {equip.price}</h6>
-            </div>
-          </div>
-        </div>
-
-      ))
-
-    }
-  }
+    fetchEquipmentData();
+  }, []);
 
   return (
     <div>
-      <div className='row mt-4'>
-        {DisplayData()}
-      </div>
+      <MDBContainer className="my-5">
+        <MDBRow>
+          {equipmentList.map((equipment) => (
+            <MDBCol md="12" lg="4" className="mb-4 mb-lg-5">
+              <MDBCard style={{ height: "550px", backgroundColor: "#F4F4F4" }}>
+                <MDBCardImage
+                  className="img-fluid rounded"
+                  src={apiUrl + "/" + equipment.image}
+                  position="top"
+                  alt="Laptop"
+                  style={{ height: "250px" }}
+                />
+                <MDBCardBody style={{ height: "350px " }}>
+                  <div className="d-flex justify-content-between">
+                    <p className="small">
+                      <a href="#!" className="text-muted">
+                        {equipment.category
+                          ? equipment.category
+                          : "No Category"}
+                      </a>
+                    </p>
+                  </div>
+
+                  <div className="d-flex justify-content-between mb-3">
+                    <h5
+                      className="mb-0"
+                      style={{
+                        lineHeight: "1em",
+                        height: " 3em",
+                        overflow: "hidden",
+                      }}
+                    >
+                      {equipment.title}
+                    </h5>
+                    <h5 className="text-dark mb-0"> ₹ {equipment.price} </h5>
+                  </div>
+
+                  <button
+                    onClick={(e) => addItemToCart(equipment)}
+                    disabled={isInCart(equipment)}
+                    className="btn btn-success"
+                  >
+                    Add to Cart
+                  </button>
+                  <Link
+                    className="btn btn-primary float-end"
+                    to={"/main/details/" + equipment._id}
+                  >
+                    View Details
+                  </Link>
+                </MDBCardBody>
+              </MDBCard>
+            </MDBCol>
+          ))}
+        </MDBRow>
+      </MDBContainer>
     </div>
-  )
+  );
+};
 
-}
-export default BrowseEquipments
-
-
+export default BrowseEquipment;
