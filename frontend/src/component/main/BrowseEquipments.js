@@ -11,7 +11,7 @@ import {
 } from "mdb-react-ui-kit";
 import useProductContext from "../../context/ProductContext";
 import { Link } from "react-router-dom";
-const BrowseEquipment = () => {
+const BrowseEquipments = () => {
   const [equipmentList, setEquipmentList] = useState([]);
   const [masterList, setMasterList] = useState([]);
   const { apiUrl } = app_config;
@@ -93,4 +93,4 @@ const BrowseEquipment = () => {
   );
 };
 
-export default BrowseEquipment;
+export default BrowseEquipments;
